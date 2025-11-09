@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     font-family: sans-serif;
     display: flex;
@@ -199,4 +200,207 @@ body {
 
 #sair-button:hover {
     background-color: #128C7E;
+=======
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    
+    /* CONFIGURAÇÃO DA IMAGEM DE FUNDO */
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    text-align: center;
+}
+
+#isca-container {
+    background-color: white;
+    padding: 10px; /* Reduzido o padding para simular link de chat */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+#phishing-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
+}
+
+.video-preview {
+    background-color: #000; /* Fundo preto para parecer vídeo */
+    height: 250px; /* Mais alto para parecer post de TikTok */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    position: relative;
+    overflow: hidden; /* Garante que a imagem se ajuste */
+}
+
+.video-image {
+    width: 100%; /* Imagem cobre a área do preview */
+    height: 100%;
+    object-fit: cover; /* Faz a imagem preencher o container sem distorcer muito */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.play-button {
+    font-size: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 10px 15px 10px 20px;
+    line-height: 1;
+    position: relative; /* Fica acima da imagem */
+    z-index: 10;
+}
+
+.link-url {
+    color: #007bff;
+    font-size: 14px;
+    margin-top: 5px;
+    word-break: break-all;
+    text-align: left;
+    padding-left: 5px;
+}
+
+.instrucao {
+    color: #ff0000;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* ESTILIZAÇÃO DO ALERTA EDUCATIVO (PRIMEIRA TELA) */
+#alerta-educacional {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.conteudo-alerta {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    color: #333;
+}
+
+.titulo-alerta {
+    color: #d9534f;
+    margin-top: 0;
+    font-size: 1.5em;
+    border-bottom: 2px solid #d9534f;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* BOTÃO DE AÇÃO COMPLEXA SIMPLES */
+#complex-action-button {
+    background-color: #007bff; /* Azul para simular um botão de ação */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+/* CLASSE PRINCIPAL PARA OCULTAR ELEMENTOS */
+.oculto {
+    display: none !important;
+}
+
+/* === OVERLAY PARA AÇÃO COMPLEXA (TELA DE HACKING) === */
+#complex-action-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001; 
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.conteudo-complexo {
+    background-color: #222;
+    color: #00ff00;
+    padding: 40px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.7);
+    border: 3px solid #00ff00;
+    margin: 0 auto;
+}
+
+#audio-visualizer-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border: 2px solid #00ff00;
+    margin: 20px auto;
+    display: block;
+    object-fit: contain;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+    animation: pulse 1s infinite alternate; 
+}
+
+@keyframes pulse {
+    from { opacity: 0.8; }
+    to { opacity: 1; }
+}
+
+/* BOTÃO SAIR (AGORA VOLTAR AO WHATSAPP) */
+#sair-button {
+    background-color: #25D366; /* Cor do WhatsApp */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#sair-button:hover {
+    background-color: #128C7E;
+>>>>>>> 1b74e103650007b682b28c80300d53d41a84ac8c
 }

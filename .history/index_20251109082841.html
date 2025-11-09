@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviso de Phishing - Projeto Educacional</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <div id="isca-container">
+        <a href="#" id="phishing-link">
+            <div class="video-preview">
+                <p>Clique para ver o vídeo secreto!</p>
+                <div class="play-button">▶</div>
+            </div>
+            <p class="link-url">https://link-curioso.com/exemplo</p>
+        </a>
+        <p class="instrucao">**Clique na isca acima!** Você está prestes a aprender algo importante sobre segurança.</p>
+    </div>
+
+    <div id="alerta-educacional" class="oculto">
+        <div class="conteudo-alerta">
+            <h1 class="titulo-alerta">🚨 PARABÉNS! VOCÊ EVITOU UM GOLPE DE PHISHING REAL! 🚨</h1>
+
+            <p>Se esta fosse uma situação real, o link acima poderia ter roubado suas informações. **Este programa tem o único objetivo de te alertar sobre o perigo de clicar em links desconhecidos.**</p>
+
+            <h3>O Que é Phishing?</h3>
+            <ul>
+                <li>É uma técnica de **engenharia social** usada por golpistas para se passar por uma entidade confiável (como um banco ou rede social).</li>
+                <li>Eles criam **urgência ou curiosidade** (ex: "Sua conta foi hackeada!" ou "Clique para ver esta foto!") para te fazer clicar sem pensar.</li>
+                <li>Ao clicar, eles podem roubar suas credenciais, instalar malware, ou pedir informações bancárias.</li>
+            </ul>
+
+            <button id="complex-action-button">
+                <p style="margin: 0;">Clique para Iniciar a Simulação do Ataque!</p>
+                <img src=".jpg" alt="Ação de Vídeo" id="button-image">
+            </button>
+        </div>
+    </div>
+
+    <div id="complex-action-overlay" class="oculto">
+        <div class="conteudo-complexo">
+            <h2 style="color: red;">ATENÇÃO: Este não é um ataque real!</h2>
+            <h3 style="color: #00ff00;">Simulando Reprodução de Áudio Criptografado...</h3>
+            
+            <img src="sp1.jpg" alt="Visualizador de Áudio" id="audio-visualizer-image">
+
+            <audio id="warning-audio" src="warning_sound.mp3" preload="auto"></audio>
+
+            <button id="sair-button" class="oculto">Sair do Programa</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

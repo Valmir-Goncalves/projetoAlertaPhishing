@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALERTA DE PHISHING: Clique com Cuidado!</title>
+    <link rel="stylesheet" href="style.css"> 
+
+    <meta property="og:title" content="Viralizou: O que sua namorada faz? 😱" />
+    <meta property="og:description" content="Assista o vídeo do TikTok antes que seja deletado!" />
+    <meta property="og:image" content="https://projeto-alerta-phishing.vercel.app/far1.jpg" /> 
+    <meta property="og:url" content="https://projeto-alerta-phishing.vercel.app/" />
+    <meta property="og:type" content="video.other" />
+    
+    <meta name="twitter:card" content="summary_large_image"> 
+</head>
+<body>
+
+    <div id="isca-container">
+        <a id="phishing-link"> 
+            <div class="video-preview">
+                <img src="far1.jpg" alt="Preview de Vídeo TikTok" class="video-image">
+                <div class="play-button">▶</div>
+            </div>
+            <p class="link-url">vt.tiktok.com/ZSyQ2pyB2/</p>
+        </a>
+        <p class="instrucao">**Clique na isca acima!** Você está prestes a aprender algo importante sobre segurança.</p>
+    </div>
+
+    <div id="alerta-educacional" class="oculto">
+        <div class="conteudo-alerta">
+            <h1 class="titulo-alerta">🚨 PARABÉNS! VOCÊ EVITOU UM GOLPE DE PHISHING REAL! 🚨</h1>
+
+            <p>Se esta fosse uma situação real, o link acima poderia ter roubado suas informações. **Este programa tem o único objetivo de te alertar sobre o perigo de clicar em links desconhecidos.**</p>
+
+            <h3>O Que é Phishing?</h3>
+            <ul>
+                <li>É uma técnica de **engenharia social** usada por golpistas.</li>
+                <li>Eles criam **urgência ou curiosidade** para te fazer clicar sem pensar.</li>
+            </ul>
+
+            <button id="complex-action-button">
+                <p style="margin: 0;">Eu quero ver o Vídeo Completo Agora!</p>
+            </button>
+        </div>
+    </div>
+
+    <div id="complex-action-overlay" class="oculto">
+        <div class="conteudo-complexo">
+            <h2 style="color: red;">SIMULAÇÃO DE ATAQUE INICIADA</h2>
+            <h3 style="color: #00ff00;">Seu celular foi Rackeado! Você acabou de perder o controle de seu celular!</h3>
+            
+            <img src="xsg.jg" alt="Sistema de Aviso" id="audio-visualizer-image">
+
+            <audio id="warning-audio" src="warning_sound.mp3" preload="auto"></audio>
+
+            <button id="sair-button" class="oculto">Voltar ao WhatsApp</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

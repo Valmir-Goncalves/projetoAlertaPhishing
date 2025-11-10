@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const warningAudio = document.getElementById('warning-audio');
     const sairButton = document.getElementById('sair-button');
     
-    // --- VARIÁVEIS E FUNÇÕES DO NOVO RELÓGIO ---
+    // --- VARIÁVEIS E FUNÇÕES DO RELÓGIO ---
     const timerDisplay = document.getElementById('digital-timer');
     let timerInterval;
     let seconds = 0;
@@ -39,6 +39,23 @@ document.addEventListener('DOMContentLoaded', function() {
         clearInterval(timerInterval);
     }
     // ------------------------------------------
+    
+    // --- VARIÁVEIS E FUNÇÕES DE VIBRAÇÃO ---
+    let vibrationTimeout = null;
+    let audioEndedListener = null;
+
+    // Função para parar a vibração
+    function stopVibration() {
+        if (vibrationTimeout) {
+            clearTimeout(vibrationTimeout);
+            vibrationTimeout = null;
+        }
+        // Limpa qualquer vibração em andamento
+        if (navigator.vibrate) { 
+            navigator.vibrate(0); 
+        }
+    }
+    // ------------------------------------------
 
     // Número de telefone para redirecionamento
     const meuNumeroWhatsapp = "5592992759349";
@@ -46,16 +63,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 2. Ação ao clicar no BOTÃO DE AÇÃO COMPLEXA -> Simula o HACKING, TOCA O ÁUDIO E INICIA O RELÓGIO
     complexActionButton.addEventListener('click', function() {
-        // Esconde o alerta educativo
+        // Esconde o alerta educativo e mostra o overlay
         alertaEducacional.classList.add('oculto');
-        
-        // Mostra o overlay de ação complexa
         complexActionOverlay.classList.remove('oculto');
         
-        // --- INICIA O RELÓGIO ---
+        // INICIA O RELÓGIO
         startTimer();
-        
-        // --- LÓGICA DE ÁUDIO ---
+
         const playAudio = async () => {
             warningAudio.currentTime = 0; 
             warningAudio.load(); 
@@ -63,39 +77,58 @@ document.addEventListener('DOMContentLoaded', function() {
             try {
                 await warningAudio.play();
                 
-                // Se o áudio tocar, o botão de sair aparece quando ele terminar
-                warningAudio.addEventListener('ended', function() {
-                    stopTimer(); // Para o relógio quando o áudio termina
+                // O áudio iniciou com sucesso.
+
+                // 1. LÓGICA DE VIBRAÇÃO (Inicia 3 segundos antes do áudio terminar)
+                // Usamos um pequeno timeout para garantir que a duração do áudio (metadata) esteja carregada
+                setTimeout(() => {
+                    const duration = warningAudio.duration;
+                    // Verifica se o navegador suporta vibração, se a duração é válida e se é maior que 3 segundos
+                    if (navigator.vibrate && !isNaN(duration) && duration > 3) {
+                        const delay = (duration - 3) * 1000;
+                        
+                        vibrationTimeout = setTimeout(() => {
+                            // Padrão de vibração: 200ms liga, 100ms desliga (repetindo 5 vezes)
+                            navigator.vibrate([200, 100, 200, 100, 200, 100, 200, 100, 200]);
+                        }, delay);
+                    }
+                }, 100); 
+
+                // 2. LÓGICA DE FIM DE ÁUDIO
+                // Remove o listener anterior para evitar duplicação
+                if (audioEndedListener) warningAudio.removeEventListener('ended', audioEndedListener);
+
+                audioEndedListener = function() {
+                    stopTimer(); // Relógio para quando o áudio termina (CORRIGIDO)
+                    stopVibration(); // Para a vibração
                     sairButton.classList.remove('oculto');
-                }, { once: true });
+                };
+
+                warningAudio.addEventListener('ended', audioEndedListener, { once: true });
                 
             } catch (error) {
-                // Falha no autoplay (bloqueio do navegador)
+                // Áudio falhou ao tocar (Autoplay bloqueado)
                 console.warn("Erro de reprodução de áudio (autoplay bloqueado):", error);
                 
-                // Mostra o botão de sair após um pequeno tempo
+                // Se falhar, mostra o botão 'Sair' e para o relógio após 3 segundos
                 setTimeout(() => {
-                    stopTimer(); // Para o relógio se o áudio falhar
+                    stopTimer(); 
                     sairButton.classList.remove('oculto');
                 }, 3000);
             }
         };
         
         playAudio();
-
-        // Fallback final: se o áudio não tocar por 8s, o botão de sair aparece.
-        setTimeout(() => {
-            if (sairButton.classList.contains('oculto')) {
-                 stopTimer(); // Garante que o relógio para no fallback
-                 sairButton.classList.remove('oculto');
-            }
-        }, 8000); 
+        
+        // O FALLBACK DE 8 SEGUNDOS FOI REMOVIDO PARA EVITAR QUE O RELÓGIO PARE PREMATURAMENTE.
     });
 
     // 3. Ação ao clicar no BOTÃO SAIR -> Redireciona para o WhatsApp
     sairButton.addEventListener('click', function() {
         // Para o relógio
         stopTimer();
+        // Para a vibração
+        stopVibration();
         
         // Para a reprodução do áudio
         warningAudio.pause();

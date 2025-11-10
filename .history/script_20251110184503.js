@@ -70,4 +70,4 @@ document.addEventListener('DOMContentLoaded', function() {
         // Redireciona para o WhatsApp
         window.location.href = whatsappLink; 
     });
-});
+});gi

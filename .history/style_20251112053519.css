@@ -166,7 +166,7 @@ body {
 
 /* Contêiner para a imagem e o relógio */
 #image-and-timer-container {
-    position: relative; /* FUNDAMENTAL: Define o ponto zero para o posicionamento absoluto */
+    position: relative; /* FUNDAMENTAL */
     width: 100%;
     max-width: 600px;
     margin: 20px auto;
@@ -184,7 +184,6 @@ body {
     padding: 10px;
     box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
     animation: pulse 1s infinite alternate; 
-    margin: 0; /* CORREÇÃO: Remove margens que podem interferir no posicionamento absoluto */
 }
 
 /* ESTILO PARA O RELÓGIO DIGITAL (70% DE ALTURA) */
@@ -198,11 +197,11 @@ body {
     display: inline-block;
     background-color: rgba(0, 0, 0, 0.7); 
     
-    /* POSICIONAMENTO CORRIGIDO: 70% da altura e 15px da direita */
+    /* POSICIONAMENTO CORRIGIDO PARA 70% */
     position: absolute;
-    right: 15px; 
+    right: 10px; 
     top: 70%; 
-    transform: translateY(-50%); /* Centraliza verticalmente no ponto 70% */
+    transform: translateY(-50%); 
     z-index: 10; 
 }
 

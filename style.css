@@ -83,7 +83,6 @@ body {
 }
 
 /* ESTILIZAÇÃO DO ALERTA EDUCATIVO (PRIMEIRA TELA) */
-/* CORREÇÃO APLICADA AQUI: Garantindo que o display seja flex para centralização */
 #alerta-educacional {
     position: fixed;
     top: 0;
@@ -165,25 +164,21 @@ body {
     margin: 0 auto;
 }
 
-/* ESTILO PARA O RELÓGIO DIGITAL */
-#digital-timer {
-    font-family: 'Courier New', monospace; /* Fonte monoespaçada para efeito digital */
-    font-size: 3em; 
-    color: #ff0000; /* Cor vermelha para dar senso de urgência/alerta */
+/* Contêiner para a imagem e o relógio */
+#image-and-timer-container {
+    position: relative; /* FUNDAMENTAL */
+    width: 100%;
+    max-width: 600px;
     margin: 20px auto;
-    padding: 10px;
-    border: 1px solid #ff0000;
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
-    display: inline-block; /* Ajusta o tamanho da borda ao conteúdo */
+    display: block; 
+    height: auto; 
 }
 
 #audio-visualizer-image {
     width: 100%;
-    max-width: 600px;
     height: auto;
     border: 2px solid #00ff00;
-    margin: 20px auto;
-    display: block;
+    display: block; 
     object-fit: contain;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 10px;
@@ -191,30 +186,24 @@ body {
     animation: pulse 1s infinite alternate; 
 }
 
-@keyframes pulse {
-    from { opacity: 0.8; }
-    to { opacity: 1; }
+/* ESTILO PARA O RELÓGIO DIGITAL (70% DE ALTURA) */
+#digital-timer {
+    font-family: 'Courier New', monospace;
+    font-size: 2em; 
+    color: #ff0000;
+    padding: 5px 10px; 
+    border: 1px solid #ff0000;
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.7);
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.7); 
+    
+    /* POSICIONAMENTO CORRIGIDO PARA 70% */
+    position: absolute;
+    right: 10px; 
+    top: 70%; 
+    transform: translateY(-50%); 
+    z-index: 10; 
 }
-
-/* BOTÃO SAIR (AGORA VOLTAR AO WHATSAPP) */
-#sair-button {
-    background-color: #25D366; /* Cor do WhatsApp */
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 30px;
-    font-size: 1.2em;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-#sair-button:hover {
-    background-color: #128C7E;
-}
-
-/* ... [Mantenha todo o seu CSS anterior, adicionando os estilos abaixo no final ou em um local apropriado] ... */
 
 /* ESTILOS DA BARRA DE PROGRESSO */
 #progress-container {
@@ -254,3 +243,25 @@ body {
     margin-top: 10px;
 }
 
+@keyframes pulse {
+    from { opacity: 0.8; }
+    to { opacity: 1; }
+}
+
+/* BOTÃO SAIR (AGORA VOLTAR AO WHATSAPP) */
+#sair-button {
+    background-color: #25D366; /* Cor do WhatsApp */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#sair-button:hover {
+    background-color: #128C7E;
+}

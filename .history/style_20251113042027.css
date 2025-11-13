@@ -164,31 +164,30 @@ body {
     margin: 0 auto;
 }
 
-/* * *** ALTERAÇÃO AQUI *** * Este contêiner agora é a 'âncora' (position: relative) para o relógio.
-*/
+/* Contêiner para a imagem e o relógio */
 #image-and-timer-container {
-    position: relative; /* FUNDAMENTAL: Define o ponto zero para o relógio */
-    width: 100%;
-    max-width: 600px; /* Limita o tamanho (bom para layout) */
-    margin: 20px auto; /* Centraliza o container */
+    position: relative; /* FUNDAMENTAL: Define o ponto zero para o posicionamento absoluto */
+    width: 60%;
+    max-width: 300px;
+    margin: 10px auto;
     display: block; 
+    height: auto; 
 }
 
 #audio-visualizer-image {
     width: 100%;
     height: auto;
     border: 2px solid #00ff00;
-    display: block; /* Remove espaço extra abaixo da imagem */
+    display: block; 
     object-fit: contain;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 10px;
     box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
     animation: pulse 1s infinite alternate; 
-    margin: 0; 
+    margin: 0; /* CORREÇÃO: Remove margens que podem interferir no posicionamento absoluto */
 }
 
-/* * *** ALTERAÇÃO AQUI *** * Posição ajustada para 'top: 15px' e 'right: 15px'
-*/
+/* ESTILO PARA O RELÓGIO DIGITAL (70% DE ALTURA) */
 #digital-timer {
     font-family: 'Courier New', monospace;
     font-size: 2em; 
@@ -199,12 +198,12 @@ body {
     display: inline-block;
     background-color: rgba(0, 0, 0, 0.7); 
     
-    /* POSICIONAMENTO ATUALIZADO */
+    /* POSICIONAMENTO CORRIGIDO: 70% da altura e 15px da direita */
     position: absolute;
-    right: 15px; /* 15px da borda direita do container */
-    top: 15px;   /* 15px da borda superior do container */
-    z-index: 10; /* Garante que fique sobre a imagem */
-    /* transform: translateY(-50%); */ /* Removido pois não é mais necessário */
+    right: 15px; 
+    top: 70%; 
+    transform: translateY(-50%); /* Centraliza verticalmente no ponto 70% */
+    z-index: 10; 
 }
 
 /* ESTILOS DA BARRA DE PROGRESSO */
